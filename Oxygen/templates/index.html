@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block head %}
+<style type="text/css">
+
+	
+.vertical-center{
+	width: 100%;
+	position: absolute;
+	height: 100%;
+	color: red;
+	background-image: url("{% static "images/molecule.gif"%}");
+  background-size: cover;
+
+
+}
+#img2{
+  position: absolute;
+  left: 22%;
+  top:33%;
+  width: 60%;
+}
+
+</style>
+{% endblock %}
+{% block content %}
+
+
+<div class="jumbotron vertical-center" >
+  
+
+<img id="img2" src="{% static 'images/pic1.webp' %}">
+  
+</div>
+<footer>
+<div class="container">
+    
+
+    <div class="row">
+
+               <div class="col-md-12 col-sm-12">
+                    <div style="color:#ffffff;" class="wow fadeInUp footer-copyright" >
+                         <br>
+                        <center> Copyright &copy;   2020  </center>
+                    </div>
+               </div>
+    </div>
+  </div>
+</footer>
+
+{% endblock %}

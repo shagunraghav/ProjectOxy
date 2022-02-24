@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<style type="text/css">
+	.alldiv{
+		position: absolute;
+		width: 100%;
+		top: 10%;
+	}
+</style>
+{% endblock%}
+
+
+
+{% block content %}
+<div class="alldiv">
+<h1 align="center">Issued Cylinder list</h1>
+
+{% if issue_list %}
+<div class='centerstage'>
+	
+		<div class="post">
+			<table border="5" cellspacing="5" width="100%"  >
+				<thead>
+					<tr bgcolor="#99c2ff" align="center">
+						<th  height="50" 
+                width="100">Cylinder Id</th>
+						<th height="50" 
+                width="100">Date</th>
+						<th  height="50" 
+                width="100">User Name</th>
+                
+				</thead>
+				<tbody>
+					{% for i in issue_list %}
+					<tr align="center" bgcolor="#e6f0ff">
+					<td align="center" height="10" 
+                width="50">{{i.cylinder}}</td>
+					<td align="center" height="10" 
+                width="100">{{i.issueDate}}</td>
+					<td align="center" height="10" 
+                width="100">{{i.userName}}</td>
+                
+					</tr>
+					{% endfor %}
+				</tbody>
+
+	
+{% else %}
+	<div>
+		<h2>No record</h2>
+	</div>
+</table>
+
+</div>
+</div>
+</div>
+
+{% endif %}
+
+{% endblock %}

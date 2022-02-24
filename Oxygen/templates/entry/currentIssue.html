@@ -1,0 +1,70 @@
+{% extends 'base.html'%}
+
+{% block head %}
+<style type="text/css">
+	.alldiv{
+		position: absolute;
+		width: 100%;
+		top: 10%;
+	}
+</style>
+{% endblock%}
+
+{% block content %}
+<div class='alldiv'>
+<h1 align="center">Currently Issued Cylinder list</h1>
+
+{% if cylinder %}
+<div class='centerstage'>
+	
+		<div class="post">
+			<table border="5" cellspacing="5" width="100%"  >
+				<thead>
+					<tr bgcolor="#99c2ff" align="center">
+						<th  height="50" 
+                width="50">Cylinder Id</th>
+						<th height="50" 
+                width="50">Date</th>
+						<th  height="50" 
+                width="50">Gas Type</th>
+						<th  height="50" 
+                width="50">Status</th>
+						<th  height="50" 
+                width="50">Availability</th>
+					
+					
+					
+				</thead>
+				<tbody>
+					{%for cy in cylinder%}
+					<tr bgcolor="#e6f0ff" align="center">
+						
+					<td align="center" height="10" 
+                width="50"><a href="{{cy.get_absolute_url}}">{{cy.cylinderId}}<a></td>
+               
+					<td align="center" height="10" 
+                
+                width="50">{{cy.EntryDate}}</td>
+					<td align="center" height="10" 
+                width="50">{{cy.gasName}}</td>
+					<td align="center" height="10" 
+                width="50">
+					{{cy.Status}}</td>
+					<td align="center" height="10" 
+                width="50">{{cy.Availability}}</td>
+              
+				{% endfor %}
+			</tr>
+
+			</tbody>
+{% else %}
+	<div>
+		<h2>No record</h2>
+	</div>
+		</table>
+
+	</div>
+
+</div>
+{% endif %}
+{% endblock %}

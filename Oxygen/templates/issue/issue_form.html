@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block head%}
+<style type="text/css">
+#divForm{
+    position: absolute;
+       padding: 4%;
+        height: 90%;
+        top:7%;
+   width:100%;
+  }
+
+  #form1{
+         background-color: #cce0ff;
+      left: 35%;
+       position: absolute;
+       
+       padding: 35px;
+       border-radius: 5%;
+      
+       border: 2.5px solid #0c49b3;
+       text-align: justify-all;
+    }
+
+    button{
+      position: relative;
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<div class='conatiner' id="divForm">
+  {% csrf_token %}
+  <br>
+  
+   
+       <form class="form-horizontal" method="POST" id="form1" >
+          <div class="dropdown">
+    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+     Cylinder Id
+    </button>
+    <div class="dropdown-menu">
+      {% for cy in cylinders %}
+      
+      <input  class="dropdown-item"  type="checkbox" name="cys" 
+      value="{{cy.cylinderId}}">
+      {{cy.cylinderId}}<br>
+      {% endfor %}
+    </div>
+  </div>
+  <br>
+            <label for="user">User Name:</label><br>
+            <input type="text" placeholder="Username" name="user" required   /><br>
+            <label for="iDate">Date:</label><br>
+            <input type="datetime-local" name="iDate" placeholder="Date" required />
+            <br><br>
+           
+            <button type="input" id="check" class="btn btn-success">Issue</button>
+        
+        </form>
+
+
+
+
+    </div>
+
+</div>
+
+
+
+    {% endblock %}

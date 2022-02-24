@@ -1,0 +1,61 @@
+
+{% extends 'base.html' %}
+{% block head %}
+<style type="text/css">
+	.alldiv{
+		position: absolute;
+		width: 100%;
+		top: 10%;
+	}
+</style>
+{% endblock%}
+
+
+
+{%block content %}
+<div class="alldiv">
+	<h1 align="center">Return Cylinder list</h1>
+
+{% if return_list %}
+<div class='centerstage'>
+	
+		<div class="post">
+			<table border="5" cellspacing="5" width="100%"  >
+				<thead>
+					<tr bgcolor="#99c2ff" align="center">
+						<th  height="50" 
+                width="50">Cylinder Id</th>
+						
+						<th  height="50" 
+                width="50">Date</th>
+                		<th  height="50" 
+                width="100">Status</th>
+						<th  height="50" 
+                width="100">Availability</th>
+				</thead>
+				<tbody>
+					{% for r in return_list %}
+					<tr align="center" bgcolor="#e6f0ff">
+					<td align="center" height="10" 
+                width="100">{{r.cylinder}}</td>
+					<td align="center" height="10" 
+                width="100">{{r.returnDate}}</td>
+                	<td align="center" height="10" 
+                width="100">{{r.status}}</td>
+                <td align="center" height="10" 
+                width="100">{{r.availability}}</td>
+            </tr>
+				{% endfor %}	
+				</tbody>
+{% else %}
+	<div>
+		<h2>No record</h2>
+	</div>
+</table>
+
+</div>
+</div>
+</div>
+{% endif %}
+
+{% endblock %}

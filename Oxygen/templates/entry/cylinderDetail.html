@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block head %}
+<style type="text/css">
+	#Details{
+		position: absolute;
+		top: 150px;
+		left: 100px;
+	}
+	#bot{
+		position: absolute;
+		top: 550px;
+		left: 100px;
+
+	}
+</style>
+
+{% endblock %}
+{% block content%}
+<div id="Details" class='container'>
+	<h2>Details</h2>
+	<p><strong>Cylinder Id:</strong>{{cylinder.cylinderId}}</p>
+	<p><strong>Date:</strong>{{cylinder.EntryDate}}</p>
+	<p><strong>Gas Name:</strong>{{cylinder.gasName}}</p>
+	<p><strong>Cylinder Size:</strong>{{cylinder.cylinderSize}}</p>
+	<p><strong>Status:</strong>{{cylinder.Status}}</p>
+	<p><strong>Availability:</strong>{{cylinder.Availability}}</p>
+	
+	
+</div>
+
+
+
+<div id="bot" class="container">
+	{% if user.is_superuser %}
+	<a class="btn btn-danger" href="{% url 'cylinderDelete' pk=cylinder.cylinderId %}">DELETE</a>
+    <a class="btn btn-success" href="{% url 'cylinderUpdate' pk=cylinder.cylinderId %}">Update</a>
+   
+    
+
+    {% endif %}
+</div>
+
+
+ 
+
+
+
+{% endblock %}

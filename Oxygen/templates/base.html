@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Apex African Gas Nigeria Limited</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+{% block head %}
+
+{% endblock %}
+<style type="text/css">
+
+  footer {
+    width: 100%;
+    bottom: 0;
+    position:fixed;
+    background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+    margin:0px;
+    height: 11%;
+}
+
+ 
+ .al{
+  font-size:1rem;
+
+ }
+ 
+a:hover{
+  background-color: #faffa3;
+}
+.dropdown:hover > .dropdown-menu {
+    background-color: #faffa3;
+    display: block;
+}
+
+ .nav-bar{
+  
+ background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+ }   
+.navbar-brand{
+  font-size: 20px;
+  font-family: sans-serif;
+
+}
+.col-lg-6{
+  padding-left: 20%;
+}
+
+#navDiv{
+  position: absolute;
+  color: white;
+  left:45%;
+  width: 50%;
+}
+
+</style>
+</head>
+<body >
+
+
+    <nav class="nav-bar navbar navbar-expand-md   custom-navbar fixed-top">
+        
+        
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ">
+              <ul class="nav navbar-nav  ">
+                <li class="nav navbar-brand">
+            <img src="//user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_300,w_120,f_auto,q_auto/1270913/960276_11295.png" alt="Apex African Gas Nigeria Limited" /> </li>
+               <li > <a href="{% url 'index' %}" class="nav-item  nav-link text-danger al active"><b>Home</b></a></li>
+               <li> <a href="#" class="nav-item al nav-link text-light ">About Us</a></li>
+
+              </ul> 
+              
+             
+
+       <div id="navDiv" class="container">
+            <ul  class="nav navbar-nav flex-row-reverse navbar-right ">
+
+      {% if user.is_authenticated %}
+    <li>
+        <a href="{% url 'logout' %}" class="nav-item nav-link text-light al">Logout</a>
+      </li>
+      
+       <li class="nav-item dropdown">
+        <a href="#" class=" nav-link text-light al dropdown-toggle" data-toggle="dropdown">
+        Generate Report</a>
+        <div class="dropdown-menu">
+          <a href="{% url 'genCylinder' %}" class="dropdown-item">All Cylinder</a>
+          <a href="{% url 'genIssue' %}" class="dropdown-item">All Issued </a>
+          <a href="{% url 'genReturn' %}" class="dropdown-item">All Returned </a>
+        </div>
+
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#" class=" nav-link text-light al dropdown-toggle" data-toggle="dropdown">
+        Logs</a>
+        <div class="dropdown-menu">
+          <a href="{% url 'cylinderList' %}" class="dropdown-item">All Cylinder</a>
+          <a href="{% url 'issueList' %}" class="dropdown-item"> Issued </a>
+          <a href="{% url 'returnList' %}" class="dropdown-item"> Returned </a>
+        </div>
+      </li>
+      
+
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-item text-light nav-link al dropdown-toggle">Report
+        </a>
+        <div class="dropdown-menu">
+          <a href="{% url 'cylinderList' %}" class="dropdown-item">
+          All Cylinder</a>
+          <a href="{% url 'currentIssue' %}" class="dropdown-item"> Currently Issued </a>
+          <a href="{% url 'availableList' %}" class="dropdown-item">Available Cylinder</a>
+          <a href="{% url 'unavailableList' %}" class="dropdown-item">Unavailable Cylinder</a>
+        </div>
+      </li>
+     
+
+      <li class="nav-item dropdown">
+        <a href="#" class=" nav-link text-light al dropdown-toggle" data-toggle="dropdown">Transactions</a>
+        <div class="dropdown-menu">
+          <a href="{% url 'createNew' %}" class="dropdown-item">Create Cylinder</a>
+          <a href="{% url 'issue' %}" class="dropdown-item">Issue Cylinder</a>
+          <a href="{% url 'returnCylinder' %}" class="dropdown-item">Return Cylinder</a>
+        </div>
+
+      </li>
+      
+      {% else %}
+       <li> <a class="nav-item nav-link al text-light" href="{% url 'login' %}" >
+       Login</a></li>
+      
+       
+  
+    {% endif %}
+</ul>
+</div>
+
+</div>
+</div>
+    </nav>
+ 
+
+{%block content%}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

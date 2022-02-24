@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block head%}
+<style type="text/css">
+#divForm{
+    position: absolute;
+       padding: 4%;
+        height: 90%;
+        top:7%;
+   
+  }
+
+	#form1{
+         background-color: #cce0ff;
+        width: 45%;
+       position: absolute;
+       left: 35%;
+       padding: 35px;
+       border-radius: 5%;
+      
+       border: 2.5px solid #0c49b3;
+       text-align: justify-all;
+    }
+    
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<div class='container' id="divForm">
+  
+  <br>
+  
+   <form class="form-horizontal" method="POST" id="form1" action="">
+{% csrf_token %}
+{{ formset.management_form }}
+{% for form in formset %}
+
+    
+       {{form.as_p}}
+    
+  
+{% endfor %}
+<div class="row spacer">
+    <div class="col-4 ">
+        <button type="submit" class="btn btn-block btn-primary">Create</button>
+    </div>
+     <div class="input-group-append">
+                <button class="btn btn-warning add-form-row">Add More</button>
+               
+            </div>
+</div>
+</form>
+
+<script type='text/javascript'>
+
+    $(document).ready(function () {
+        $('body').on('click', '#add_more', function () {
+            var form_idx = $('#presalesForm-TOTAL_FORMS').val();
+            $('#form_set').append($('#empty_form').html().replace(/__prefix__/g, form_idx));
+            $('#presalesForm-TOTAL_FORMS').val(parseInt(form_idx) + 1);
+        });
+    });
+
+  
+
+</script>
+
+    {% endblock %}

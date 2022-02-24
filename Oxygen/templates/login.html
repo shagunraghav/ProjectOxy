@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block head %}
+<style type="text/css">
+	.vertical-center {
+  height:50%;
+  width:100%;
+  top:25%;
+  position: absolute;
+  text-align: center;  /* align the inline(-block) elements horizontally */
+ }
+</style>
+{% endblock%}
+
+{% block content %}
+
+<div class="jumbotron vertical-center">
+	<center>
+	<h2>Please Login:</h2>
+	<h3>(Must be SuperUser, please check with the site admin)</h3>
+
+	{% if form.errors %}
+	<p>You username and password didn't match! Please try again.</p>
+
+	{% endif %}
+
+	<form action="{% url 'login' %}" method="POST">
+	{% csrf_token %}
+	{{form.as_p }}
+	<input type="submit" class="btn btn-primary" value="Login">
+	<input type="hidden" name="next" value="{{next}}">
+
+	</form>
+		
+</div>
+</center>
+{% endblock %}
+
+
+
